@@ -1,0 +1,156 @@
+<saw:report xmlns:saw="com.siebel.analytics.web/report/v1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:sawx="com.siebel.analytics.web/expression/v1.1" xmlVersion="201201160">
+   <saw:criteria xsi:type="saw:simpleCriteria" subjectArea="&quot;NFTS - ODS&quot;" withinHierarchy="true">
+      <saw:columns>
+         <saw:column xsi:type="saw:regularColumn" columnID="c3fb98667818f2e58">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">"NFTS Intransit Files"."Intr-File Number"</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="suppress" fontColor="#000000" wrapText="true"/></saw:displayFormat>
+            <saw:columnHeading>
+               <saw:displayFormat>
+                  <saw:formatSpec/></saw:displayFormat></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c91813284b1d13d73">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">"NFTS Intransit Files"."Intr-Intransit From Office"</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="cbf4c7a45da038dbe">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">"NFTS Intransit Files"."Intr-Intransit To Office"</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c64e0ab5f66943118">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">"NFTS Intransit Files"."Intr-Intransit Date"</sawx:expr></saw:columnFormula></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c6cc9534b8592a9df">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">timestampdiff( SQL_TSI_DAY ,"NFTS Intransit Files"."Intr-Intransit Date", current_date)</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="repeat" wrapText="true" fontColor="#000000" fontStyle="italic" fontSize="14"/></saw:displayFormat>
+            <saw:columnHeading>
+               <saw:displayFormat>
+                  <saw:formatSpec/></saw:displayFormat></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="ced867f39ecc438e9">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">"NFTS Intransit Files"."Intr-Intransit To Section Code"</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="repeat" wrapText="true"/></saw:displayFormat>
+            <saw:columnHeading>
+               <saw:displayFormat>
+                  <saw:formatSpec/></saw:displayFormat></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="ce9b60099e32943dc">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">"NFTS Intransit Files"."Intr-Intransit To RPC"</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="repeat" wrapText="true"/></saw:displayFormat>
+            <saw:columnHeading>
+               <saw:displayFormat>
+                  <saw:formatSpec/></saw:displayFormat></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="c50132b599345d45d">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">"NFTS Intransit Files"."Intr-Intransit To RPC Desc"</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="suppress" fontColor="#000000" wrapText="true" fontStyle="bold,italic" fontEffects="underline"/></saw:displayFormat>
+            <saw:columnHeading>
+               <saw:displayFormat>
+                  <saw:formatSpec/></saw:displayFormat></saw:columnHeading></saw:column>
+         <saw:column xsi:type="saw:regularColumn" columnID="cd1bc068ee641d5f8" forceGroupBy="true">
+            <saw:columnFormula>
+               <sawx:expr xsi:type="sawx:sqlExpression">COUNT("NFTS Intransit Files"."Intr-Intransit To RPC Desc" by "NFTS Intransit Files". "Intr-Intransit to RPC Desc")</sawx:expr></saw:columnFormula>
+            <saw:displayFormat>
+               <saw:formatSpec suppress="repeat" fontColor="#000000" fontStyle="regular" wrapText="true" fontSize="14"/></saw:displayFormat>
+            <saw:columnHeading>
+               <saw:displayFormat>
+                  <saw:formatSpec/></saw:displayFormat></saw:columnHeading></saw:column></saw:columns>
+      <saw:filter>
+         <sawx:expr xsi:type="sawx:logical" op="and">
+            <sawx:expr xsi:type="sawx:comparison" op="equal">
+               <sawx:expr xsi:type="sawx:sqlExpression">"NFTS Intransit Files"."Intr-Intransit From Office"</sawx:expr>
+               <sawx:expr xsi:type="xsd:string">ZNY</sawx:expr></sawx:expr>
+            <sawx:expr xsi:type="sawx:list" op="beginsWith">
+               <sawx:expr xsi:type="sawx:sqlExpression">"NFTS Intransit Files"."Intr-Intransit To Office"</sawx:expr>
+               <sawx:expr xsi:type="xsd:string">ZNY</sawx:expr></sawx:expr>
+            <sawx:expr xsi:type="sawx:list" op="in">
+               <sawx:expr xsi:type="sawx:sqlExpression">"NFTS Intransit Files"."Intr-Intransit To Section Code"</sawx:expr>
+               <sawx:expr xsi:type="xsd:string">CT</sawx:expr>
+               <sawx:expr xsi:type="xsd:string">IA</sawx:expr>
+               <sawx:expr xsi:type="xsd:string">CL</sawx:expr></sawx:expr></sawx:expr></saw:filter>
+      <saw:columnOrder>
+         <saw:columnOrderRef columnID="cd1bc068ee641d5f8" direction="descending"/></saw:columnOrder></saw:criteria>
+   <saw:views currentView="0">
+      <saw:view xsi:type="saw:compoundView" name="compoundView!1">
+         <saw:cvTable>
+            <saw:cvRow>
+               <saw:cvCell viewName="titleView!1"/></saw:cvRow>
+            <saw:cvRow>
+               <saw:cvCell viewName="tableView!1"/></saw:cvRow></saw:cvTable></saw:view>
+      <saw:view xsi:type="saw:titleView" name="titleView!1" includeName="false" startedDisplay="none">
+         <saw:title>
+            <saw:caption fmt="text">
+               <saw:text>Files In Transit To Support Staff</saw:text></saw:caption></saw:title></saw:view>
+      <saw:view xsi:type="saw:tableView" name="tableView!1" scrollingEnabled="false">
+         <saw:edges>
+            <saw:edge axis="page" showColumnHeader="true"/>
+            <saw:edge axis="section" insertPageBreak="false" showBlankRows="false" headings="none">
+               <saw:displayFormat>
+                  <saw:formatSpec hAlign="center" wrapText="true"/></saw:displayFormat>
+               <saw:edgeLayers>
+                  <saw:edgeLayer type="column" columnID="cd1bc068ee641d5f8" insertPageBreak="false">
+                     <saw:memberFormat>
+                        <saw:displayFormat>
+                           <saw:formatSpec fontSize="24" wrapText="true"/></saw:displayFormat></saw:memberFormat></saw:edgeLayer>
+                  <saw:edgeLayer type="column" columnID="c50132b599345d45d" insertPageBreak="false">
+                     <saw:headerFormat>
+                        <saw:displayFormat>
+                           <saw:formatSpec wrapText="true" fontColor="#000000" fontStyle="bold" fontSize="16"/></saw:displayFormat>
+                        <saw:caption>
+                           <saw:text>In Transit To Description </saw:text></saw:caption></saw:headerFormat>
+                     <saw:memberFormat>
+                        <saw:displayFormat>
+                           <saw:formatSpec hAlign="center" vAlign="middle" wrapText="true"/></saw:displayFormat></saw:memberFormat></saw:edgeLayer>
+                  <saw:edgeLayer type="column" columnID="ced867f39ecc438e9" insertPageBreak="false">
+                     <saw:headerFormat>
+                        <saw:displayFormat>
+                           <saw:formatSpec fontColor="#000000" wrapText="true" fontSize="16"/></saw:displayFormat>
+                        <saw:caption>
+                           <saw:text>Section Code</saw:text></saw:caption></saw:headerFormat>
+                     <saw:memberFormat>
+                        <saw:displayFormat>
+                           <saw:formatSpec fontColor="#000000" wrapText="true" fontStyle="bold" fontSize="12"/></saw:displayFormat></saw:memberFormat></saw:edgeLayer>
+                  <saw:edgeLayer type="column" columnID="ce9b60099e32943dc" insertPageBreak="false">
+                     <saw:headerFormat>
+                        <saw:displayFormat>
+                           <saw:formatSpec fontColor="#000000" wrapText="true" fontSize="16"/></saw:displayFormat>
+                        <saw:caption>
+                           <saw:text>RPC Number</saw:text></saw:caption></saw:headerFormat>
+                     <saw:memberFormat>
+                        <saw:displayFormat>
+                           <saw:formatSpec fontColor="#000000" wrapText="true" fontStyle="bold" fontSize="12"/></saw:displayFormat></saw:memberFormat></saw:edgeLayer></saw:edgeLayers></saw:edge>
+            <saw:edge axis="row" showColumnHeader="true">
+               <saw:columnOrder>
+                  <saw:columnOrderRef columnID="c6cc9534b8592a9df" direction="ascending"/></saw:columnOrder>
+               <saw:edgeLayers>
+                  <saw:edgeLayer type="column" columnID="c3fb98667818f2e58">
+                     <saw:headerFormat>
+                        <saw:displayFormat>
+                           <saw:formatSpec wrapText="true" fontColor="#000000" fontStyle="bold" fontSize="16"/></saw:displayFormat>
+                        <saw:caption>
+                           <saw:text>File Number</saw:text></saw:caption></saw:headerFormat>
+                     <saw:memberFormat>
+                        <saw:displayFormat>
+                           <saw:formatSpec wrapText="true"/></saw:displayFormat></saw:memberFormat></saw:edgeLayer>
+                  <saw:edgeLayer type="column" columnID="c64e0ab5f66943118">
+                     <saw:headerFormat>
+                        <saw:displayFormat>
+                           <saw:formatSpec fontColor="#000000" fontStyle="bold" fontSize="16" wrapText="true"/></saw:displayFormat>
+                        <saw:caption>
+                           <saw:text>In Transit Since</saw:text></saw:caption></saw:headerFormat>
+                     <saw:memberFormat>
+                        <saw:displayFormat>
+                           <saw:formatSpec fontColor="#000000" wrapText="true" hAlign="center" vAlign="middle"/></saw:displayFormat></saw:memberFormat></saw:edgeLayer>
+                  <saw:edgeLayer type="column" columnID="c6cc9534b8592a9df">
+                     <saw:headerFormat>
+                        <saw:displayFormat>
+                           <saw:formatSpec wrapText="true" fontColor="#000000" fontStyle="bold" fontSize="16"/></saw:displayFormat>
+                        <saw:caption>
+                           <saw:text>Days In Transit</saw:text></saw:caption></saw:headerFormat>
+                     <saw:memberFormat>
+                        <saw:displayFormat>
+                           <saw:formatSpec hAlign="center" vAlign="middle" wrapText="true"/></saw:displayFormat></saw:memberFormat></saw:edgeLayer></saw:edgeLayers></saw:edge>
+            <saw:edge axis="column" showColumnHeader="rollover"/></saw:edges></saw:view></saw:views></saw:report>
